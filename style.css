@@ -1,0 +1,190 @@
+body {
+    font-family: 'Calibri', sans-serif;
+    background-color: rgb(200, 200, 200);
+    height: 100vh;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+
+.title {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.container {
+    color: rgb(40, 40, 40);
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+    padding-top: 10px;
+}
+
+#container1{
+    background-color: rgb(130, 192, 110);
+}
+
+#container2 {
+    background-color: rgb(192, 147, 110);
+}
+
+#container3 {
+    background-color: rgb(192, 110, 110);
+}
+
+
+.calculadora {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: rgba(255, 255, 255, 0.25);
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#display {
+    color: rgb(100, 100, 100);
+    background-color: rgb(240, 240, 240);
+    font-size: 20px;
+    border-radius: 5px;
+    width: 200px;
+    height: 30px;
+    border: 0px;
+    text-align: right;
+    margin-left: 0px;
+    margin-right: 5px;
+    width: 135px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+#display::placeholder {
+    color: rgb(100, 100, 100);
+}
+
+#botão-limpar {
+    margin-right: 12px;
+}
+
+.botões {
+    display: grid;
+    grid-template-columns: repeat(4, 45px);
+    grid-gap: 12px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.botão {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    color: rgb(40, 40, 40);
+    font-size: 20px;
+    border-radius: 5px;
+    width: 40px;
+    height: 30px;
+    border: 0px;
+    background-color: rgb(240,240,240);
+    transition: background-color 0.1s ease-in-out;
+    transition: transform 0.05s ease-in-out;
+}
+
+.botão:hover {
+    transition: transform 0.05s ease-in-out;
+    background-color: rgb(230, 230, 230);
+    cursor: pointer;
+}
+
+.botão:active {
+    transform: scale(0.95);
+    transition: transform 0.05s ease-in-out;
+}
+
+h1 {
+    font-size: 30px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.input-text {
+    font-weight: bold;
+    color: rgb(40, 40, 40);
+    font-size: 20px;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.input-field {
+    font-size: 15px;
+    font-family: 'Calibri', sans-serif;
+    border: none;
+    height: 30px;
+    width: 200px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.input-field:focus {
+    outline: none;
+    scale: 1.05;
+    transition: all 0.1s ease;
+}
+
+.formulario {
+    
+    border-radius: 5px;
+    padding-top: 0px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    display: grid;    
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.divisao-form {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.botão-form {
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    color: rgb(40, 40, 40);
+    font-size: 15px;
+    border-radius: 5px;
+    width: 110px;
+    height: 40px;
+    border: 0px;
+    background-color: rgb(240,240,240);
+    transition: background-color 0.1s ease-in-out;
+    transition: transform 0.05s ease-in-out;
+}
+
+.botão-form:hover {
+    background-color: rgb(230, 230, 230);
+    cursor: pointer;
+}
+
+.botão-form:active {
+    transform: scale(0.95);
+    transition: transform 0.05s ease-in-out;
+}
