@@ -123,9 +123,10 @@ h1 {
 }
 
 .input-field {
+    transition: all 0.1s ease;
     font-size: 15px;
     font-family: 'Calibri', sans-serif;
-    border: none;
+    border: 3px solid rgba(0, 0, 0, 0);
     height: 30px;
     width: 200px;
     margin-bottom: 20px;
@@ -141,7 +142,6 @@ h1 {
 }
 
 .formulario {
-    
     border-radius: 5px;
     padding-top: 0px;
     margin-top: 0px;
@@ -150,12 +150,12 @@ h1 {
     display: grid;    
     justify-content: center;
     align-items: center;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
     grid-gap: 10px;
 }
 
 .divisao-form {
+    height: 100px;
+    height: 90px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
     background-color: rgba(255, 255, 255, 0.25);
     border-radius: 5px;
@@ -187,4 +187,98 @@ h1 {
 .botão-form:active {
     transform: scale(0.95);
     transition: transform 0.05s ease-in-out;
+}
+
+#jogo-da-velha {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.botão-velha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    color: rgb(40, 40, 40);
+    font-size: 40px;
+    border-radius: 5px;
+    width: 80px;
+    height: 80px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.55);
+    transition: background-color 0.15s ease;
+}
+
+.botão-velha:hover {
+    background-color: rgb(230, 230, 230);
+    cursor: pointer;
+}
+
+.botão-velha:disabled {
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: none;
+    cursor: default;
+}
+
+.img-velha {
+    opacity: 1;
+    transition: opacity 0.15s ease;
+    width: 50px;
+    height: 50px;
+}
+
+.img-velha.invisivel {
+    opacity: 0;
+}
+
+
+.rodape-velha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.rodape-velha p {
+    width: 170px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(40, 40, 40);
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.rodape-velha button {
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    color: rgb(40, 40, 40);
+    font-size: 15px;
+    border-radius: 5px;
+    width: 110px;
+    height: 40px;
+    border: none;
+    background-color: rgb(240,240,240);
+    margin-right: 10px;
+    margin-left: 10px;
+    transition: all 0.05s ease-in;
+}
+
+.rodape-velha button:hover {
+    transform: scale(0.95);
+    background-color: rgb(230, 230, 230);
+    cursor: pointer;
 }
