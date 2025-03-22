@@ -85,7 +85,7 @@ function calcular(num1, num2, operacao) {
 
 
 
-// FORMULÁRIO   
+// FORMULÁRIO
 const nome = document.getElementById('nome');
 const email = document.getElementById('email');
 const telefone = document.getElementById('telefone');
@@ -97,17 +97,20 @@ enviar.addEventListener('click', () => {
 
     let check = true;
     const colorError = '3px solid rgba(219, 56, 56, 0.6)';
+    let errors = "";
 
     if (nome.value.trim() === '') {
         check = false;
         nome.style.border = colorError;
+        errors += 'Preencha seu nome.\n';
     }else{
         nome.style.border = '3px solid rgba(0, 0, 0, 0)';
     }
 
     if (!validarEmail()) {
         check = false;
-        email.style.border =  colorError;
+        email.style.border = colorError;
+        errors += 'Esse e-mail não é valido.\n';
     }else{
         email.style.border = '3px solid rgba(0, 0, 0, 0)';
     }
@@ -115,6 +118,7 @@ enviar.addEventListener('click', () => {
     if (!validarTelefone()) {
         check = false;
         telefone.style.border =  colorError;
+        errors += 'Telefone deve conter 13 dígitos.\n';
     }else{
         telefone.style.border = '3px solid rgba(0,0,0,0)';
     }
@@ -122,14 +126,15 @@ enviar.addEventListener('click', () => {
     if (senha.value.length < 8) {
         check = false;
         senha.style.border =  colorError;
+        errors += 'A senha deve conter no mínimo 8 dígitos.\n';
     }else{
         senha.style.border = '3px solid rgba(0,0,0,0)';
     }
 
     if (check) {
-        alert('Formulário enviado com sucesso!');
+        alert('Conta criada com sucesso!');
     }else{
-        alert('Por favor, preencha todos os campos corretamente.');
+        alert(errors);
     }
 
 });
@@ -159,11 +164,11 @@ let tabuleiro = [
 
 btt_reset.addEventListener('click', reset_game);
 
-for (btt in botoes_velha) {
-    botoes_velha[btt].addEventListener('click', bttVelha);
-    botoes_velha[btt].addEventListener('mouseover', bttVelhaHover);
-    botoes_velha[btt].addEventListener('mouseout', bttVelhaHoverOut);
-    botoes_velha[btt].children[0].classList.add('invisivel');
+for (i = 0; i < botoes_velha.length; i++) {
+    botoes_velha[i].addEventListener('click', bttVelha);
+    botoes_velha[i].addEventListener('mouseover', bttVelhaHover);
+    botoes_velha[i].addEventListener('mouseout', bttVelhaHoverOut);
+    botoes_velha[i].children[0].classList.add('invisivel');
 }
 
 function att_text(text){
@@ -258,10 +263,10 @@ function checkWin() {
 }
 
 function changeAllBtts(jogador) {
-    for (btt in botoes_velha) {
+    for (i = 0; i < botoes_velha.length; i++) {
 
-        if (botoes_velha[btt].disabled === false) {
-            botoes_velha[btt].children[0].src = `images/${jogador}.png`;
+        if (botoes_velha[i].disabled === false) {
+            botoes_velha[i].children[0].src = `images/${jogador}.png`;
         }
     }
 }
@@ -285,7 +290,7 @@ function end(){
 
         if (!positionsConverted.includes(parseInt(botoes_velha[btt].id))) {
             botoes_velha[btt].children[0].classList.add('invisivel');
-        }       
+        }    
     }
 
 
@@ -298,8 +303,8 @@ function reset_game(){
         ['', '', ''],
         ['', '', ''],
         ['', '', '']
-    
     ];
+        
     att_text(`Jogador atual: ${jogadorAtual}`);
     for (btt in botoes_velha) {
         botoes_velha[btt].disabled = false;
@@ -307,4 +312,81 @@ function reset_game(){
         botoes_velha[btt].children[0].classList.add('invisivel');
     }
     
+}
+
+
+
+
+// HERANÇA COM PROTOTYPE
+
+
+
+// classe animal --
+function Animal(nome, som) {
+    this.nome = nome;
+    this.som = som;
+}
+
+Animal.prototype.fazerSom = function() {
+    alert(this.som);
+}
+// ---
+
+const bttAddAnimal = document.getElementById("adicionar-animal");
+const bttRemoveAnimal = document.getElementById("remover-animais");
+
+bttRemoveAnimal.addEventListener("click", () => {
+    const animais = document.querySelectorAll(".animal");
+    animais.forEach(animal => animal.remove());
+})
+
+bttAddAnimal.addEventListener("click", () => {
+    const animais = [Cachorro, Gato, Passaro];
+    const indiceAleatorio = Math.floor(Math.random() * animais.length);
+    const animalAleatorio = new animais[indiceAleatorio](); 
+    elemento = criarAnimal(animalAleatorio);
+    elemento.scrollIntoView({ behavior: "smooth", block: "start" });
+})
+
+// animais ---
+function Cachorro() {
+    Animal.call(this, "Cachorro", "Au Au!");
+}
+Cachorro.prototype = Object.create(Animal.prototype);
+Cachorro.prototype.constructor = Cachorro;
+
+function Gato() {
+    Animal.call(this, "Gato", "Miau!");
+}
+Gato.prototype = Object.create(Animal.prototype);
+Gato.prototype.constructor = Gato;
+
+function Passaro() {
+    Animal.call(this, "Passaro", "Piu Piu!");
+}
+Passaro.prototype = Object.create(Animal.prototype);
+Passaro.prototype.constructor = Passaro;
+
+// ----
+
+function criarAnimal(animal) {
+
+    const container = document.getElementById("animais");
+
+    const div = document.createElement("div");
+    div.classList.add("animal");
+
+    const p = document.createElement("p");
+    p.textContent = animal.nome;
+
+    const botao = document.createElement("button");
+    botao.textContent = "SOM";
+    botao.addEventListener("click", () => animal.fazerSom());
+
+    div.appendChild(p);
+    div.appendChild(botao);
+
+    container.appendChild(div);
+
+    return div;
 }
